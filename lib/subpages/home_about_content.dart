@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:remixicon/remixicon.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:cakappramuka/helper/helper.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AboutContent extends StatefulWidget {
@@ -27,13 +27,6 @@ class _AboutContentState extends State<AboutContent> {
     _initGetterAppVersion();
   }
 
-  Future<void> _openUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
-      throw Exception('Could not launch $uri');
-    }
-  }
-
   InlineSpan buildContactInfo(BuildContext context, String label, String url,
       {bool last = false}) {
     return TextSpan(
@@ -47,7 +40,7 @@ class _AboutContentState extends State<AboutContent> {
           text: label,
           recognizer: TapGestureRecognizer()
             ..onTap = () {
-              _openUrl(url);
+              Helper.openUrl(url);
             },
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -210,7 +203,7 @@ class _AboutContentState extends State<AboutContent> {
                           shadowColor: Colors.orange,
                         ),
                         onPressed: () {
-                          _openUrl('https://trakteer.id/cakadi190');
+                          Helper.openUrl('https://trakteer.id/cakadi190');
                         },
                         child: Text('Donasi'),
                       ),
@@ -315,7 +308,7 @@ class _AboutContentState extends State<AboutContent> {
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
                                 onPressed: () =>
-                                    _openUrl('https://fb.me/cakadi190'),
+                                    Helper.openUrl('https://fb.me/cakadi190'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.youtube_fill),
@@ -325,7 +318,7 @@ class _AboutContentState extends State<AboutContent> {
                                     foregroundColor:
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
-                                onPressed: () => _openUrl(
+                                onPressed: () => Helper.openUrl(
                                     'https://youtube.com/@catatancakadi'),
                               ),
                               IconButton(
@@ -337,7 +330,7 @@ class _AboutContentState extends State<AboutContent> {
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
                                 onPressed: () =>
-                                    _openUrl('https://wa.me/6281333550746'),
+                                    Helper.openUrl('https://wa.me/6281333550746'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.github_fill),
@@ -348,7 +341,7 @@ class _AboutContentState extends State<AboutContent> {
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
                                 onPressed: () =>
-                                    _openUrl('https://github.com/cakadi190'),
+                                    Helper.openUrl('https://github.com/cakadi190'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.instagram_line),
@@ -359,7 +352,7 @@ class _AboutContentState extends State<AboutContent> {
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
                                 onPressed: () =>
-                                    _openUrl('https://instagram.com/cakadi190'),
+                                    Helper.openUrl('https://instagram.com/cakadi190'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.linkedin_box_fill),
@@ -369,7 +362,7 @@ class _AboutContentState extends State<AboutContent> {
                                     foregroundColor:
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
-                                onPressed: () => _openUrl(
+                                onPressed: () => Helper.openUrl(
                                     'https://linkedin.com/in/cakadi190'),
                               ),
                             ],

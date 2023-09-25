@@ -32,8 +32,14 @@ class _HomepageState extends State<Homepage> {
     return (await showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text('Apakah Kakak Yakin?'),
-            content: Text('Apakah kakak yakin akan keluar dari aplikasi?'),
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            backgroundColor: Colors.white,
+            actionsAlignment: MainAxisAlignment.center,
+            title: Text('Apakah Kakak Yakin?', textAlign: TextAlign.center),
+            content: Text('Apakah kakak yakin akan keluar dari aplikasi?',
+                textAlign: TextAlign.center),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
@@ -66,8 +72,8 @@ class _HomepageState extends State<Homepage> {
             decoration: BoxDecoration(color: ThemeColors.primary),
             padding: EdgeInsets.all(16),
             child: GNav(
-              rippleColor: Colors.white.withOpacity(0.25),
-              hoverColor: Colors.white.withOpacity(0.25),
+              rippleColor: Colors.white.withOpacity(0.125),
+              hoverColor: Colors.white.withOpacity(0.125),
               haptic: true,
               tabBorderRadius: 99,
               tabActiveBorder:

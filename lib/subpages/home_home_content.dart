@@ -47,7 +47,7 @@ class _HomeContentState extends State<HomeContent> {
               ),
               SizedBox(height: 16),
               HomeSlider(),
-              SizedBox(height: 16),
+              SizedBox(height: 20),
               BasicScout(),
               SizedBox(height: 16),
               AdvancedScout(),

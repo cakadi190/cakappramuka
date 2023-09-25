@@ -123,12 +123,13 @@ class _HomeSliderState extends State<HomeSlider> {
             );
           }).toList(),
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 12),
         AnimatedSmoothIndicator(
           activeIndex: currentState,
           count: sliderItem.length,
           effect: ExpandingDotsEffect(
             dotHeight: 10,
+            dotWidth: 10,
             activeDotColor: Theme.of(context).primaryColor,
             dotColor: Theme.of(context).primaryColor.withOpacity(0.325),
           ),
