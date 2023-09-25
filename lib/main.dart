@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:cakappramuka/config/colors.dart';
 
 import 'package:cakappramuka/pages/splash.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(RootApp());
@@ -15,7 +14,6 @@ class RootApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      builder: FToastBuilder(),
       title: 'Cakap Pramuka',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
