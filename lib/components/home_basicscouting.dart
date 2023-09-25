@@ -18,6 +18,7 @@ class _BasicScoutState extends State<BasicScout> {
     {"title": "Perkemahan"},
     {"title": "Satuan Karya (SAKA)"},
     {"title": "P3K"},
+    {"title": "Bedah SKU"},
   ];
 
   @override
@@ -35,21 +36,23 @@ class _BasicScoutState extends State<BasicScout> {
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
                   childAspectRatio: 13 / 6,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20),
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16),
               itemCount: _listPage.length,
               itemBuilder: (BuildContext ctx, index) {
                 Map<String, dynamic> data = _listPage[index];
 
                 return InkWell(
                   onTap: () {
-
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Tap'),
+                    ));
                   },
                   child: Container(
                     alignment: Alignment.center,
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                        color: Colors.amber.shade100,
+                        color: ThemeColors.primary.shade200,
                         borderRadius: BorderRadius.circular(12)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,

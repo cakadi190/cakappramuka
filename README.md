@@ -1,16 +1,9 @@
-# cakappramuka
+# Cakap Pramuka
 
-Buku Saku Pramuka versi digital iOS dan Android
+Buku Saku Pramuka versi digital iOS dan Android untuk temen-temen Siaga hingga pandega.
 
-## Getting Started
+Aplikasi ini masih dalam tahap pengembangan. Apabila berminat untuk membantu pengembangannya bisa ke
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Whatsapp](https://wa.me/6281333550746?text=Saya%20berminat%20untuk%20mengembangkan%20aplikasi%20Cakap%20Pramuka)
+- [Instagram](https://instagram.com/cakadi190)
+- [Facebook](https://fb.me/cakadi190)

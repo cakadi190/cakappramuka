@@ -69,7 +69,8 @@ class _HomeSliderState extends State<HomeSlider> {
                         context,
                         PageTransition(
                             child: i['navigateTo'],
-                            type: PageTransitionType.bottomToTop));
+                            alignment: Alignment.bottomCenter,
+                            type: PageTransitionType.scale));
                   },
                   child: Container(
                     padding: EdgeInsets.only(left: 4, right: 4),

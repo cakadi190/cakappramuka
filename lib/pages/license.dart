@@ -78,14 +78,20 @@ class _LicensesPageState extends State<LicensesPage> {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(16),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
                 'Terima kasih kepada semuanya yang sudah membantu dalam pengembangan aplikasi ini, termasuk yang ada dalam daftar berikut ini.',
                 style: GoogleFonts.signika(fontSize: 16)),
             SizedBox(height: 16),
-            Text("Atribusi & Kredit", style: GoogleFonts.signika(fontSize: 16, fontWeight: FontWeight.bold)),
+            Text("Atribusi & Kredit",
+                style: GoogleFonts.signika(
+                    fontSize: 16, fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
-            ListView.builder(
+            ListView.separated(
+              separatorBuilder: (context, index) => SizedBox(
+                height: 8,
+              ),
               physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
@@ -93,6 +99,9 @@ class _LicensesPageState extends State<LicensesPage> {
               itemBuilder: (BuildContext context, int index) {
                 Map<String, dynamic> license = _licenseList[index];
                 return ListTile(
+                  tileColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
                   subtitle: Text("By ${license['author']}",
                       style: GoogleFonts.signika(
                           fontWeight: FontWeight.w500,
@@ -116,7 +125,8 @@ class _LicensesPageState extends State<LicensesPage> {
                         action: SnackBarAction(
                           label: 'Tutup',
                           onPressed: () {
-                            ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                            ScaffoldMessenger.of(context)
+                                .removeCurrentSnackBar();
                           },
                         ),
                       ));

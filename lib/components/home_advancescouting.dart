@@ -11,13 +11,9 @@ class AdvancedScout extends StatefulWidget {
 
 class _AdvancedScoutState extends State<AdvancedScout> {
   static var _listPage = <Map<String, dynamic>>[
-    {"title": "Kepanduan Umum"},
-    {"title": "Simpul"},
-    {"title": "Yel-Yel dan Video Lengkap"},
-    {"title": "Sandi"},
-    {"title": "Perkemahan"},
-    {"title": "Satuan Karya (SAKA)"},
-    {"title": "P3K"},
+    {"title": "Pembinaan"},
+    {"title": "Kemah Pembina"},
+    {"title": "Kemah Mahir"},
   ];
 
   @override
@@ -26,7 +22,7 @@ class _AdvancedScoutState extends State<AdvancedScout> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Kepramukaan Dasar',
+          Text('Kepramukaan Lanjutan',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           GridView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -35,8 +31,8 @@ class _AdvancedScoutState extends State<AdvancedScout> {
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 200,
                   childAspectRatio: 13 / 6,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20),
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16),
               itemCount: _listPage.length,
               itemBuilder: (BuildContext ctx, index) {
                 Map<String, dynamic> data = _listPage[index];
@@ -45,7 +41,7 @@ class _AdvancedScoutState extends State<AdvancedScout> {
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: Colors.amber.shade100,
+                      color: ThemeColors.primary.shade200,
                       borderRadius: BorderRadius.circular(12)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,

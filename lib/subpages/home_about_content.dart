@@ -67,6 +67,11 @@ class _AboutContentState extends State<AboutContent> {
       "provider": "PT Bank Central Asia Tbk. (BCA)",
       "number": "0092188343"
     },
+    {
+      "bank": "assets/images/account-bank/paypal.png",
+      "provider": "PayPal Inc.",
+      "number": "@cakadi190"
+    },
   ];
 
   Future<void> _initGetterAppVersion() async {
@@ -78,56 +83,65 @@ class _AboutContentState extends State<AboutContent> {
   }
 
   Widget DonateSection() {
-    return ListView.builder(
+    return ListView.separated(
         physics: NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
         itemCount: accountName.length,
+        separatorBuilder: (context, index) => SizedBox(
+              height: 8,
+            ),
         itemBuilder: (BuildContext context, int index) {
           Map<String, dynamic> data = accountName[index];
           return ListTile(
-              onTap: () {
-                Clipboard.setData(ClipboardData(text: data['number']));
-                ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  backgroundColor: Colors.green,
-                  action: SnackBarAction(
-                    label: 'Tutup',
-                    textColor: Colors.white.withOpacity(0.75),
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                    },
-                  ),
-                  content: Text(
-                    "Nomor rekening telah disalin ke papan salinan.",
-                    style: GoogleFonts.signika(fontSize: 16),
-                  ),
-                ));
-              },
-              onLongPress: () {
-                Clipboard.setData(ClipboardData(text: data['number']));
-                ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  backgroundColor: Colors.green,
-                  action: SnackBarAction(
-                    textColor: Colors.white.withOpacity(0.75),
-                    label: 'Tutup',
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                    },
-                  ),
-                  content: Text(
-                    "Nomor rekening telah disalin ke papan salinan.",
-                    style: GoogleFonts.signika(fontSize: 16),
-                  ),
-                ));
-              },
-            title: Text(data['number'], style: GoogleFonts.signika(fontWeight: FontWeight.bold, color: ThemeColors.primary)),
-            subtitle: Text('a/n Amir Zuhdi Wibowo', style: GoogleFonts.signika(fontWeight: FontWeight.normal, color: ThemeColors.primary)),
+            tileColor: Colors.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            onTap: () {
+              Clipboard.setData(ClipboardData(text: data['number']));
+              ScaffoldMessenger.of(context).removeCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                backgroundColor: Colors.green,
+                action: SnackBarAction(
+                  label: 'Tutup',
+                  textColor: Colors.white.withOpacity(0.75),
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                  },
+                ),
+                content: Text(
+                  "Nomor rekening telah disalin ke papan salinan.",
+                  style: GoogleFonts.signika(fontSize: 16),
+                ),
+              ));
+            },
+            onLongPress: () {
+              Clipboard.setData(ClipboardData(text: data['number']));
+              ScaffoldMessenger.of(context).removeCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                backgroundColor: Colors.green,
+                action: SnackBarAction(
+                  textColor: Colors.white.withOpacity(0.75),
+                  label: 'Tutup',
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                  },
+                ),
+                content: Text(
+                  "Nomor rekening telah disalin ke papan salinan.",
+                  style: GoogleFonts.signika(fontSize: 16),
+                ),
+              ));
+            },
+            title: Text(data['number'],
+                style: GoogleFonts.signika(
+                    fontWeight: FontWeight.bold, color: ThemeColors.primary)),
+            subtitle: Text('a/n Amir Zuhdi Wibowo',
+                style: GoogleFonts.signika(
+                    fontWeight: FontWeight.normal, color: ThemeColors.primary)),
             trailing: Image.asset(data['bank'], height: 24),
           );
         });
-
   }
 
   @override
@@ -187,7 +201,8 @@ class _AboutContentState extends State<AboutContent> {
                           Navigator.push(
                               context,
                               PageTransition(
-                                  type: PageTransitionType.bottomToTop,
+                                  alignment: Alignment.bottomCenter,
+                                  type: PageTransitionType.scale,
                                   child: LicensesPage()));
                         },
                         child: Text('Lisensi'),
@@ -220,6 +235,16 @@ class _AboutContentState extends State<AboutContent> {
                   text: TextSpan(
                     text:
                         "Aplikasi ini adalah aplikasi untuk memudahkan adik-adik, teman-teman atau kakak-kakak untuk mempelajari, melatih dan mempraktekan ilmu kepramukaan dimanapun kakak berada yang mana hadir dalam bentuk aplikasi mobile untuk android dan iOS.",
+                    style: DefaultTextStyle.of(context)
+                        .style
+                        .merge(TextStyle(fontSize: 16)),
+                  ),
+                ),
+                SizedBox(height: 8),
+                RichText(
+                  text: TextSpan(
+                    text:
+                        "Aplikasi ini dibuat untuk melatih saya dalam membuat software android berbasis flutter yang mana pada saat ini adalah era mobile yang mana semua informasi dapat diperole hanya bermodal genggaman saja.",
                     style: DefaultTextStyle.of(context)
                         .style
                         .merge(TextStyle(fontSize: 16)),
@@ -329,8 +354,8 @@ class _AboutContentState extends State<AboutContent> {
                                     foregroundColor:
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
-                                onPressed: () =>
-                                    Helper.openUrl('https://wa.me/6281333550746'),
+                                onPressed: () => Helper.openUrl(
+                                    'https://wa.me/6281333550746'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.github_fill),
@@ -340,8 +365,8 @@ class _AboutContentState extends State<AboutContent> {
                                     foregroundColor:
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
-                                onPressed: () =>
-                                    Helper.openUrl('https://github.com/cakadi190'),
+                                onPressed: () => Helper.openUrl(
+                                    'https://github.com/cakadi190'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.instagram_line),
@@ -351,8 +376,8 @@ class _AboutContentState extends State<AboutContent> {
                                     foregroundColor:
                                         MaterialStateProperty.all<Color?>(
                                             Colors.white)),
-                                onPressed: () =>
-                                    Helper.openUrl('https://instagram.com/cakadi190'),
+                                onPressed: () => Helper.openUrl(
+                                    'https://instagram.com/cakadi190'),
                               ),
                               IconButton(
                                 icon: Icon(Remix.linkedin_box_fill),
@@ -382,7 +407,6 @@ class _AboutContentState extends State<AboutContent> {
                         fontWeight: FontWeight.normal, fontSize: 16)),
                 SizedBox(height: 4),
                 DonateSection(),
-                SizedBox(height: 16),
               ],
             ),
           ),

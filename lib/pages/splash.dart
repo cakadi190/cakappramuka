@@ -43,10 +43,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void _navigateToHome() async {
     await Future.delayed(
         Duration(milliseconds: 5000),
-        () => Navigator.push(
-            context,
+        () => Navigator.of(context).pushAndRemoveUntil(
             PageTransition(
-                type: PageTransitionType.rightToLeft, child: Homepage())));
+                type: PageTransitionType.rightToLeft, child: Homepage()),
+            (Route<dynamic> route) => false));
   }
 
   @override
